@@ -30,12 +30,10 @@ print(" > Active GPU ids: {}".format(device_ids))
 
 best_loss = float('Inf')
 
-if config["input_mode"] == "webm_videos":
+if config["input_mode"] == "av":
     from data_loader_av import VideoFolder
-elif config["input_mode"] == "i3d_features":
-    from data_loader_i3d_features import VideoFolder
-elif config["input_mode"] == "imagenet_features":
-    from data_loader_imagenet_features import VideoFolder
+elif config["input_mode"] == "skvideo":
+    from data_loader_skvideo import VideoFolder
 else:
     raise ValueError("Please provide a valid input mode")
 
